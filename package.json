@@ -1,0 +1,46 @@
+{
+  "name": "booking-component",
+  "author": "Romulo Soliz",
+  "scripts": {
+    "build": "react-scripts build",
+    "build:css": "postcss src/styles/main.css -o public/index.css",
+    "check-format": "npm run prettier -- --check",
+    "format": "npm run prettier -- --write",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.jsx,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|jsx|ts|tsx)\"",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "validate": "npm-run-all --parallel check-format lint build "
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "react-scripts": "3.4.3",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^8.0.0",
+    "prettier": "^2.1.2",
+    "tailwindcss": "^1.8.10"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
