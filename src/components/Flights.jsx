@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import DateRangePicker from '../components/wrappers/DateRangePicker'
+import DateRangePicker from './controls/DateRangePicker'
 import {setDepartureDate, setReturnDate} from '../redux/modules/flights'
 import {focus} from '../redux/modules/controls'
 
