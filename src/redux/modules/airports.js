@@ -1,17 +1,17 @@
-const SET_FROM = 'booking-mask/airport/SET_FROM'
-const SET_TO = 'booking-mask/airport/SET_TO'
+const SET_ORIGIN = 'booking-mask/airport/SET_ORIGIN'
+const SET_DESTINATION = 'booking-mask/airport/SET_DESTINATION'
 
 const initialState = {
-  from: {value: 'MIA', label: 'Miami (MIA)'},
-  to: '',
+  origin: {value: 'MIA', label: 'Miami (MIA)'},
+  destination: '',
 }
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    case SET_FROM:
-      return {...state, from: action.airport}
-    case SET_TO:
-      return {...state, to: action.airport}
+    case SET_ORIGIN:
+      return {...state, origin: action.airport}
+    case SET_DESTINATION:
+      return {...state, destination: action.airport}
 
     default:
       return state
@@ -20,14 +20,14 @@ export default function reducer(state = initialState, action = {}) {
 
 export function setFrom(airport) {
   return {
-    type: SET_FROM,
+    type: SET_ORIGIN,
     airport,
   }
 }
 
 export function setTo(airport) {
   return {
-    type: SET_TO,
+    type: SET_DESTINATION,
     airport,
   }
 }
