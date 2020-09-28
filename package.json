@@ -2,7 +2,7 @@
   "name": "booking-component",
   "author": "Romulo Soliz",
   "scripts": {
-    "build": "react-scripts build",
+    "build": "npm run build:css && react-scripts build",
     "build:css": "postcss src/styles/main.css -o public/index.css",
     "check-format": "npm run prettier -- --check",
     "format": "npm run prettier -- --write",
