@@ -1,5 +1,24 @@
 @tailwind base;
+/* REMOVE DEFAULT NUMBER INPUT BEHAVIOR */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
 
 @tailwind components;
+
+.square {
+  @apply h-8 w-8 border border-gray-400;
+}
+
+.disabled {
+  @apply opacity-25 cursor-default;
+}
 
 @tailwind utilities;
