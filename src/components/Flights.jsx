@@ -18,14 +18,19 @@ const CustomArrowIcon = () => {
   const changeType = useCallback(() => dispatch(toggleRoundtrip()), [dispatch])
 
   return (
-    <div
-      className='flex border border-gray-light rounded-full cursor-pointer'
-      onClick={changeType}
-    >
-      <span className={`p-1 rounded-l-full ${roundtrip ? '' : 'toggled'}`}>
+    <div className='flex   cursor-pointer' onClick={changeType}>
+      <span
+        className={`p-1 rounded-l-full  ${
+          roundtrip ? 'border border-r-0 border-gray-light' : 'toggled'
+        }`}
+      >
         <img src={onewayIcon} alt='roundtrip icon' width={18} />
       </span>
-      <span className={`p-1 rounded-r-full ${roundtrip ? 'toggled' : ''}`}>
+      <span
+        className={`p-1 rounded-r-full  ${
+          roundtrip ? 'toggled' : 'border border-l-0 border-gray-light'
+        }`}
+      >
         <img src={roundtripIcon} alt='roundtrip icon' width={18} />
       </span>
     </div>
