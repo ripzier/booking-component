@@ -3,7 +3,7 @@ const SET_DESTINATION = 'booking-mask/airport/SET_DESTINATION'
 
 const initialState = {
   origin: {value: 'MIA', label: 'Miami (MIA)'},
-  destination: '',
+  destination: null,
 }
 
 export default function reducer(state = initialState, action = {}) {

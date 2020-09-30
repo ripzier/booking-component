@@ -1,19 +1,26 @@
 const FOCUS = 'booking-mask/controls/FOCUS'
 const UNFOCUS = 'booking-mask/controls/UNFOCUS'
 const SUBMIT = 'booking-mask/controls/SUBMIT'
+const CLOSE_ERROR = 'booking-mask/controls/CLOSE_ERROR'
 
 const initialState = {
+  errorMessage: null,
   focusedInput: null,
 }
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case FOCUS:
-      return {focusedInput: action.control}
+      return {...state, focusedInput: action.control}
     case UNFOCUS:
-      return {focusedInput: null}
+      return {...state, focusedInput: null}
     case SUBMIT:
-      return state
+      return {
+        ...state,
+        errorMessage: action.errorMessage,
+      }
+    case CLOSE_ERROR:
+      return {...state, errorMessage: null}
     default:
       return state
   }
@@ -39,7 +46,16 @@ export function submit(state) {
     passengers: {adults, children, infants},
   } = state
 
-  if (origin && destination && departing && returning) {
+  const action = {type: SUBMIT}
+
+  if (roundtrip && !returning) action.errorMessage = 'Choose a return date!'
+  if (!departing) action.errorMessage = 'Choose a departure date!'
+  if (origin && destination && origin.value === destination.value)
+    action.errorMessage = 'Origin and Destination cannot be the same!'
+  if (!destination) action.errorMessage = 'Choose a destination!'
+  if (!origin) action.errorMessage = 'Choose an origin!'
+
+  if (!action.errorMessage) {
     let flight_type, dates
     const departingDate = departing.format('YYYY-MM-DD')
 
@@ -57,7 +73,11 @@ export function submit(state) {
     window.open(deepLink)
   }
 
+  return action
+}
+
+export function closeError() {
   return {
-    type: SUBMIT,
+    type: CLOSE_ERROR,
   }
 }

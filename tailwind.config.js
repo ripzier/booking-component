@@ -15,6 +15,14 @@ module.exports = {
         'gray-light': '#cdcdcd',
         'gray-dark': '#474747',
       },
+      gridTemplateColumns: {
+        '1e': '1fr',
+        '2e': 'repeat(2, 1fr)',
+        '8e': 'repeat(8, 1fr)',
+      },
+      inset: {
+        '1/2': '50%',
+      },
     },
   },
   variants: {},

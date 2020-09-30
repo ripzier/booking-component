@@ -10,7 +10,7 @@ const SearchButton = ({className: classes}) => {
 
   return (
     <div
-      className={`${classes}  md:text-xl text-white text-center bg-primary hover:bg-primary-dark cursor-pointer`}
+      className={`${classes} inline-flex justify-center items-center md:text-xl text-white bg-primary hover:bg-primary-dark cursor-pointer border border-white`}
       onClick={search}
     >
       Search

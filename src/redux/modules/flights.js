@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action = {}) {
     case SET_RETURN_DATE:
       return {...state, returning: action.date}
     case TOGGLE_ROUNDTRIP:
-      return {...state, roundtrip: !state.roundtrip}
+      return {...state, roundtrip: !state.roundtrip, returning: null}
     default:
       return state
   }

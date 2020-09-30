@@ -1,42 +1,57 @@
 import React, {useCallback} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
+import options from '../assets/airportsList'
+import airplaneIcon from '../assets/airplane.png'
 import Select from './controls/Select'
 import {setFrom, setTo} from '../redux/modules/airports'
 import {focus, unfocus} from '../redux/modules/controls'
-import options from '../assets/airportsList'
 
-const Airports = () => {
-  const airports = useSelector((state) => state.airports)
+const Airports = ({className}) => {
+  const {origin, destination} = useSelector((state) => state.airports)
   const {focusedInput} = useSelector((state) => state.controls)
-
   const dispatch = useDispatch()
 
-  const onOriginChange = useCallback((value) => dispatch(setFrom(value)), [
-    dispatch,
-  ])
+  const focused = focusedInput === 'airports' ? 'focused' : ''
 
-  const onDestinationChange = useCallback((value) => dispatch(setTo(value)), [
-    dispatch,
-  ])
+  const onOriginChange = useCallback(
+    (value) => {
+      dispatch(setFrom(value))
+    },
+    [dispatch]
+  )
 
-  const changeFocus = useCallback(() => {
-    if (focusedInput === 'airports') {
+  const onDestinationChange = useCallback(
+    (value) => {
+      dispatch(setTo(value))
       dispatch(unfocus())
-    } else {
+    },
+    [dispatch]
+  )
+
+  const getFocus = useCallback(() => {
+    if (!focused) {
       dispatch(focus('airports'))
     }
-  }, [dispatch, focusedInput])
+  }, [dispatch, focused])
 
   return (
-    <div className='flex' onClick={changeFocus}>
+    <div
+      className={`flex items-center ${focused} bg-white border border-gray-light ${className}`}
+      onClick={getFocus}
+    >
       <Select
-        value={airports.origin}
+        placeholder='From'
+        value={origin}
         onChange={onOriginChange}
         options={options}
       />
+      <span>
+        <img src={airplaneIcon} alt='airplane icon' width={40} />
+      </span>
       <Select
-        value={airports.destination}
+        placeholder='To'
+        value={destination}
         onChange={onDestinationChange}
         options={options}
       />

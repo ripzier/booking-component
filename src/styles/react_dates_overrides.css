@@ -1,0 +1,48 @@
+.DateRangePicker {
+  width: 100%;
+}
+
+.DateRangePickerInput {
+  display: flex;
+  align-items: center;
+}
+
+.DateInput {
+  flex: 1 1 0%;
+}
+
+.DateInput__disabled,
+.DateRangePickerInput__disabled {
+  background-color: white;
+}
+
+.DateInput_input__disabled {
+  background-color: white;
+  opacity: 0.25;
+}
+
+.DateRangePickerInput_arrow_disabled {
+  background-color: white;
+}
+
+.CalendarDay__selected {
+  background: #cc0000;
+  color: white;
+}
+
+.CalendarDay__selected_span {
+  background: #cccccc;
+  color: #333333;
+  border: 1px solid #999999;
+}
+
+.CalendarDay__hovered_span {
+  background: #cccccc;
+  color: #333333;
+  border: 1px solid #999999;
+}
+
+.CalendarDay:hover {
+  background: #333333;
+  color: white;
+}

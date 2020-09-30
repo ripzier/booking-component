@@ -13,7 +13,13 @@ const DateRangePicker = (props) => {
       focusedInput={props.focusedInput}
       onFocusChange={props.onFocusChange}
       // Additional Props
+      displayFormat='ddd, D MMM'
+      verticalSpacing={0}
       hideKeyboardShortcutsPanel
+      firstDayOfWeek={1}
+      noBorder
+      customArrowIcon={props.customArrowIcon}
+      disabled={props.disabled}
     />
   )
 }

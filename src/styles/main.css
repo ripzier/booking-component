@@ -13,12 +13,52 @@ input[type='number'] {
 
 @tailwind components;
 
+.grid {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+
+.backdrop {
+  @apply fixed w-full h-full z-40 inset-0 bg-black bg-opacity-25;
+}
+
+.focused {
+  @apply z-50;
+}
+
 .square {
   @apply h-8 w-8 border border-gray-400;
 }
 
 .disabled {
   @apply opacity-25 cursor-default;
+}
+
+.link {
+  @apply inline-block;
+}
+
+.link:after {
+  content: '';
+  margin-left: 5px;
+  display: inline-block;
+  border: 4px solid transparent;
+  border-left-color: #c00;
+}
+
+.toggled {
+  background-color: #33ffff;
+  filter: invert(100%);
+}
+
+#startDate,
+#endDate {
+  @apply text-lg text-gray-333 font-normal;
+}
+
+#startDate::placeholder,
+#endDate::placeholder {
+  @apply text-gray-333;
 }
 
 @tailwind utilities;
